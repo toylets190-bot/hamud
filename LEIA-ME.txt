@@ -1,0 +1,28 @@
+SANTA CLARA EC — SITE EM PÁGINAS
+================================
+
+COMO ABRIR
+  Extraia o zip e dê dois cliques em index.html. Precisa de internet só para
+  fontes e imagens (imgur etc.). Para publicar, suba a pasta inteira no seu
+  hospedeiro (Netlify, GitHub Pages, Vercel...).
+
+COMO FUNCIONA
+  O site abre no INÍCIO. Cada item do menu abre uma página própria; páginas com várias seções têm abas e botões Anterior/Próxima — sem rolar
+  tudo até o fim. Os links antigos (#ingressos, #tabela...) continuam valendo:
+  abrem a página certa e rolam até a seção. O botão voltar do navegador funciona.
+
+  Páginas: Início · Notícias · Jogos e Tabela · Elenco · Desempenho · Meu Jogo ·
+  Ingressos · Vou ao Jogo · Seja Sócio · Fanzone · Central do Torcedor ·
+  O Clube · Estádio · Comunidade · Transparência · Loja Oficial
+
+PASTAS
+  index.html         estrutura do site (seções, modais, rodapé)
+  css/style.css      visual original
+  css/paginas.css    visual da navegação por páginas
+  js/area-edicao.js  EDITE AQUI: jogos, elenco, notícias, contatos
+  js/paginas.js      menu/páginas (lista SC_PAGES = cartões do Início e títulos)
+  js/*.js            demais funções (ingressos, loja, sócio, mapa do estádio...)
+
+MUDAR UMA SEÇÃO DE PÁGINA
+  No index.html, troque o data-page="..." da <section>. O valor é o id da
+  primeira seção da página de destino (ex.: data-page="clube").

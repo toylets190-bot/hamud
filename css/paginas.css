@@ -1,0 +1,43 @@
+/* Santa Clara EC — css/paginas.css
+   Navegação por páginas. Só uma página aparece por vez; o resto fica escondido. */
+
+body[data-pg] [data-page]:not(.page-on) { display: none !important; }
+body[data-pg] .page-on { animation: pgIn .3s ease; }
+@keyframes pgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { body[data-pg] .page-on { animation: none; } }
+
+/* Barra "← Início" no topo de todas as páginas, menos no Início */
+.pg-bar { background: var(--club-black); border-bottom: 1px solid var(--club-border); }
+body[data-pg="inicio"] .pg-bar { display: none; }
+.pg-bar .container { display: flex; align-items: center; gap: 12px; padding-top: 10px; padding-bottom: 10px; font-size: .8rem; }
+.pg-bar a { color: var(--club-gold); font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .5px; }
+.pg-bar a:hover { text-decoration: underline; }
+.pg-bar span { color: var(--club-muted); }
+.pg-bar span::before { content: "/"; margin-right: 12px; opacity: .6; }
+
+/* Cartões "Explore o site" (Início) */
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.pg-card { display: flex; flex-direction: column; gap: 6px; padding: 20px; min-height: 150px; background: var(--club-card); border: 1px solid var(--club-border); border-radius: var(--radius-lg); color: var(--club-white); text-decoration: none; transition: var(--transition-smooth); }
+.pg-card:hover, .pg-card:focus-visible { background: var(--club-card-hover); border-color: var(--club-gold); transform: translateY(-3px); box-shadow: var(--shadow-blue); }
+.pg-ico { font-size: 1.9rem; line-height: 1; }
+.pg-card b { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; text-transform: uppercase; letter-spacing: .5px; }
+.pg-card span { color: var(--club-muted); font-size: .85rem; line-height: 1.4; }
+.pg-card i { margin-top: auto; color: var(--club-gold); font-style: normal; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; }
+
+/* Abas dentro da página */
+body[data-pg] .tab-off { display: none !important; }
+.pg-tabs { background: var(--club-dark); border-bottom: 1px solid var(--club-border); }
+.pg-tabs .container { display: flex; gap: 8px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: thin; }
+.pg-tabs button { flex: none; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--club-border); background: var(--club-card); color: var(--club-white); font: 600 .85rem var(--font-main); white-space: nowrap; cursor: pointer; transition: var(--transition-smooth); }
+.pg-tabs button:hover { border-color: var(--club-gold); }
+.pg-tabs button[aria-selected="true"] { background: var(--club-primary); border-color: var(--club-accent); color: #fff; }
+
+/* Anterior / Próxima página */
+body[data-pg="inicio"] .pg-pager { display: none; }
+.pg-pager { border-top: 1px solid var(--club-border); background: var(--club-dark); }
+.pg-pager .container { display: flex; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 24px; }
+.pg-pager a { display: flex; flex-direction: column; gap: 2px; padding: 14px 20px; min-width: 150px; background: var(--club-card); border: 1px solid var(--club-border); border-radius: var(--radius-md); color: var(--club-white); text-decoration: none; transition: var(--transition-smooth); }
+.pg-pager a:hover { border-color: var(--club-gold); background: var(--club-card-hover); }
+.pg-pager .pg-next { text-align: right; margin-left: auto; }
+.pg-pager small { color: var(--club-gold); font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; }
+.pg-pager b { font-family: var(--font-display); font-weight: 400; font-size: 1.1rem; text-transform: uppercase; }
